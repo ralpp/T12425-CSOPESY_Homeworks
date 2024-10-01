@@ -7,8 +7,9 @@ const int MAX_PROCESS_NAME_LENGTH = 40;
 std::string truncateString(const std::string& str) {
     if (str.length() > MAX_PROCESS_NAME_LENGTH) {
         return str.substr(0, MAX_PROCESS_NAME_LENGTH - 3) + "...";
+    } else {
+        return str + std::string(MAX_PROCESS_NAME_LENGTH - str.length(), ' ');
     }
-    return str;
 }
 
 void setConsoleSize(int width, int height) {
@@ -41,11 +42,11 @@ void printProcesses() {
     std::cout << "|  GPU   GI   CI   PID   Type   Process name                              GPU Memory |\n";
     std::cout << "|        ID   ID                                                          Usage      |\n";
     std::cout << "+------------------------------------------------------------------------------------+\n";
-    std::cout << "|    0   N/A  N/A  1368  C+G   " << truncateString("C:\\Windows\\System32\\dwm.exe") << "               N/A         |\n";
-    std::cout << "|    0   N/A  N/A  2116  C+G   " << truncateString("...wekyb3d8bbwe\\vboxGameBarWidgets.exe") << "      N/A       |\n";
-    std::cout << "|    0   N/A  N/A  4224  C+G   " << truncateString("...on123.0.2420.65\\msedgewebview2.exe") << "       N/A       |\n";
-    std::cout << "|    0   N/A  N/A  5684  C+G   " << truncateString("C:\\Windows\\explorer.exe") << "                    N/A        |\n";
-    std::cout << "|    0   N/A  N/A  6676  C+G   " << truncateString("...tCBS_cw5n1h2txyewy\\SearchHost.exe") << "        N/A       |\n";
+    std::cout << "|    0   N/A  N/A  1368  C+G   " << truncateString("C:\\Windows\\System32\\dwm.exe") << "     N/A      |\n";
+    std::cout << "|    0   N/A  N/A  2116  C+G   " << truncateString("...wekyb3d8bbwe\\vboxGameBarWidgets.exe") << "     N/A      |\n";
+    std::cout << "|    0   N/A  N/A  4224  C+G   " << truncateString("...on123.0.2420.65\\msedgewebview2.exe") << "     N/A      |\n";
+    std::cout << "|    0   N/A  N/A  5684  C+G   " << truncateString("C:\\Windows\\explorer.exe") << "     N/A      |\n";
+    std::cout << "|    0   N/A  N/A  6676  C+G   " << truncateString("...tCBS_cw5n1h2txyewy\\SearchHost.exe") << "     N/A      |\n";
     std::cout << "+------------------------------------------------------------------------------------+\n";
 }
 
@@ -53,7 +54,8 @@ int main() {
     setConsoleSize(120, 30); 
 
     std::string userInput;
-
+            printGpuSummary(); 
+            printProcesses(); 
     while (true) { 
         std::cout << "PS C:/Users/Administrator> ";
         std::getline(std::cin, userInput); 
@@ -71,4 +73,3 @@ int main() {
 
     return 0;
 }
-
