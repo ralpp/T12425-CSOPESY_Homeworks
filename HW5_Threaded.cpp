@@ -76,7 +76,6 @@ private:
 
         // Print the static command footer text
         setCursorPosition(0, height - 2);
-        std::cout << "Enter a command for MARQUEE CONSOLE: " << std::flush; // Static footer
     }
 
     void setCursorPosition(int x, int y) {
