@@ -61,7 +61,6 @@ private:
         std::cout << "*********************************************************" << std::endl;
 
         setCursorPosition(0, height - 2);
-        std::cout << "Enter a command for MARQUEE CONSOLE: " << std::flush;
     }
 
     // Sets cursor to the specified position in the console
